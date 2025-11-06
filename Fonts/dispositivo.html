@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Dispositivo — ERP Simples</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="navbar-fixed">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ERP Simples</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="pessoa.html">Pessoas</a></li>
+            <li class="nav-item"><a class="nav-link" href="contrato.html">Contratos</a></li>
+            <li class="nav-item"><a class="nav-link active" href="dispositivo.html">Dispositivos</a></li>
+            <li class="nav-item"><a class="nav-link" href="atendimento.html">Atendimento</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1>Cadastro de Dispositivo</h1>
+    <p class="lead">Cada contrato pode ter um ou mais dispositivos associados.</p>
+
+    <form id="dispositivoForm" class="needs-validation" novalidate>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Vincular ao contrato</h5>
+          <div class="mb-3">
+            <label for="contratoVinculado" class="form-label">Contrato <span class="text-danger">*</span></label>
+            <select id="contratoVinculado" name="contratoVinculado" class="form-select" required>
+              <option value="">Escolha o contrato...</option>
+              <option value="1">Contrato #001 — João Silva</option>
+              <option value="2">Contrato #002 — Empresa Exemplo LTDA</option>
+            </select>
+            <div class="invalid-feedback">Selecione o contrato ao qual o dispositivo será vinculado.</div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nomeComputador" class="form-label">Nome do computador <span
+                  class="text-danger">*</span></label>
+              <input type="text" id="nomeComputador" name="nomeComputador" class="form-control" required>
+              <div class="invalid-feedback">Informe o nome do computador.</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="sistemaOperacional" class="form-label">Sistema operacional</label>
+              <input type="text" id="sistemaOperacional" name="sistemaOperacional" class="form-control"
+                placeholder="Ex: Windows 10, Android 12">
+            </div>
+
+            <div class="col-md-6">
+              <label for="nomeUsuarios" class="form-label">Nome(s) do(s) usuário(s) <span
+                  class="text-danger">*</span></label>
+              <input type="text" id="nomeUsuarios" name="nomeUsuarios" class="form-control"
+                placeholder="Separar por vírgula" required>
+              <div class="invalid-feedback">Informe o(s) nome(s) do(s) usuário(s).</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="senhaUsuarios" class="form-label">Senha(s) de usuário(s)</label>
+              <input type="text" id="senhaUsuarios" name="senhaUsuarios" class="form-control"
+                placeholder="Separar por vírgula quando houver múltiplos">
+            </div>
+
+            <div class="col-md-4">
+              <label for="tipoConexao" class="form-label">Tipo de conexão remota</label>
+              <select id="tipoConexao" name="tipoConexao" class="form-select">
+                <option value="">Escolha...</option>
+                <option>AnyDesk</option>
+                <option>TeamViewer</option>
+                <option>Área de Trabalho Remota (RDP)</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="idConexao" class="form-label">ID da conexão</label>
+              <input type="text" id="idConexao" name="idConexao" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+              <label for="senhaConexao" class="form-label">Senha da conexão</label>
+              <input type="text" id="senhaConexao" name="senhaConexao" class="form-control">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end gap-2">
+        <button type="reset" class="btn btn-outline-secondary">Limpar</button>
+        <button type="submit" class="btn btn-primary">Salvar dispositivo</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; <span id="year4"></span> ERP Simples — Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small>contato@erp-simples.com</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          } else {
+            event.preventDefault()
+            alert('Dispositivo validado — enviar para backend (implementação futura).')
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+    document.getElementById('year4').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

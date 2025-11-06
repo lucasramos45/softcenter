@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Pessoa — ERP Simples</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Reutiliza o mesmo header -->
+    <header class="navbar-fixed">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">ERP Simples</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="pessoa.html">Pessoas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contrato.html">Contratos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dispositivo.html">Dispositivos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="atendimento.html">Atendimento</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h1>Cadastro de Pessoa</h1>
+        <p class="lead">Formulário para cadastrar Pessoa Física ou Jurídica. Campos obrigatórios conforme requisitos.
+        </p>
+
+        <!-- Formulário estruturado em cards para legibilidade -->
+        <form id="pessoaForm" class="needs-validation" novalidate>
+            <!-- Tipo de pessoa -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Tipo de Pessoa</h5>
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoPessoa" id="pf" value="PF" checked>
+                            <label class="form-check-label" for="pf">Pessoa Física</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoPessoa" id="pj" value="PJ">
+                            <label class="form-check-label" for="pj">Pessoa Jurídica</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados principais -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Dados</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nomeCompleto" class="form-label">Nome completo <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" required>
+                            <div class="invalid-feedback">Informe o nome completo.</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="nomeFantasia" class="form-label">Nome fantasia</label>
+                            <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="razaoSocial" class="form-label">Razão social (PJ)</label>
+                            <input type="text" class="form-control" id="razaoSocial" name="razaoSocial">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" pattern="\d{11}"
+                                placeholder="Apenas números">
+                            <div class="form-text">Formato: 11 dígitos (somente números).</div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cnpj" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="cnpj" name="cnpj" pattern="\d{14}"
+                                placeholder="Apenas números">
+                            <div class="form-text">Formato: 14 dígitos (somente números).</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="inscricaoEstadual" class="form-label">Inscrição estadual</label>
+                            <input type="text" class="form-control" id="inscricaoEstadual" name="inscricaoEstadual">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endereço -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Endereço</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="logradouro" class="form-label">Logradouro <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="logradouro" name="logradouro" required>
+                            <div class="invalid-feedback">Informe o logradouro.</div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="numero" class="form-label">Número <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="numero" name="numero" required>
+                            <div class="invalid-feedback">Informe o número.</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="bairro" class="form-label">Bairro <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="bairro" name="bairro" required>
+                            <div class="invalid-feedback">Informe o bairro.</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="cidade" name="cidade" required>
+                            <div class="invalid-feedback">Informe a cidade.</div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                            <select id="estado" name="estado" class="form-select" required>
+                                <option value="">Escolha...</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>MG</option>
+                                <option>BA</option>
+                                <!-- Adicionar demais estados conforme necessário -->
+                            </select>
+                            <div class="invalid-feedback">Informe o estado.</div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="cep" class="form-label">CEP <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="cep" name="cep" pattern="\d{8}"
+                                placeholder="Apenas números" required>
+                            <div class="invalid-feedback">Informe o CEP (8 dígitos).</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <button type="reset" class="btn btn-outline-secondary">Limpar</button>
+                <button type="submit" class="btn btn-primary">Salvar pessoa</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span id="year2"></span> ERP Simples — Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>contato@erp-simples.com</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Validação bootstrap padrão
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        // Aqui você chamaria o endpoint do backend (Python) via fetch/XHR
+                        event.preventDefault()
+                        alert('Formulário validado — enviar para backend (implementação futura).')
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+        // Atualiza ano no rodapé
+        document.getElementById('year2').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

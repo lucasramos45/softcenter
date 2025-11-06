@@ -1,0 +1,164 @@
+/* ============================
+Estilos Globais do Site ERP Simples Nacional
+============================ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ============================
+Navbar e Cabeçalho
+============================ */
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    color: #f0f0f0 !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff !important;
+    text-decoration: underline;
+}
+
+/* ============================
+Conteúdo Principal e Cards
+============================ */
+
+main {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    border-radius: 1rem;
+    border: none;
+    background-color: #ffffff;
+}
+
+.card h2,
+.card h3 {
+    font-weight: 600;
+}
+
+/* ============================
+Formulários
+============================ */
+
+form label {
+    font-weight: 500;
+    color: #333;
+}
+
+form .form-control,
+form .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+button[type="submit"] {
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* ============================
+Tabelas
+============================ */
+
+table th {
+    background-color: #e8f0fe;
+    color: #0d6efd;
+    text-align: center;
+}
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* ============================
+Rodapé
+============================ */
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ============================
+Responsividade
+============================ */
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        padding: 1rem !important;
+    }
+}
+
+/* ============================
+Página: Atendimento
+============================ */
+
+#descricao {
+    resize: vertical;
+}
+
+.table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+section.card {
+    margin-bottom: 2rem;
+}

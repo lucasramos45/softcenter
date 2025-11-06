@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Atendimento - ERP Simples Nacional</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Reutiliza o mesmo header -->
+    <header class="navbar-fixed">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">ERP Simples</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="pessoa.html">Pessoas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contrato.html">Contratos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dispositivo.html">Dispositivos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-5">
+        <section class="card shadow p-4">
+            <h1>Cadastro de Atendimento</h1>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="dataAbertura" class="form-label">Data e Hora de Abertura</label>
+                        <input type="datetime-local" id="dataAbertura" name="dataAbertura" class="form-control"
+                            required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="perfilCliente" class="form-label">Perfil do Cliente</label>
+                        <select id="perfilCliente" name="perfilCliente" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option value="pf">Pessoa Física</option>
+                            <option value="pj">Pessoa Jurídica</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="atendente" class="form-label">Atendente Responsável</label>
+                        <input type="text" id="atendente" name="atendente" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="canal" class="form-label">Canal de Atendimento</label>
+                        <select id="canal" name="canal" class="form-select" required>
+                            <option value="">Selecione...</option>
+                            <option>E-mail</option>
+                            <option>Telefone</option>
+                            <option>Chat</option>
+                            <option>Presencial</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="motivo" class="form-label">Motivo do Atendimento</label>
+                        <input type="text" id="motivo" name="motivo" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="descricao" class="form-label">Descrição Detalhada</label>
+                        <textarea id="descricao" name="descricao" class="form-control" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-5">Registrar Atendimento</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Histórico de Atendimentos -->
+        <section>
+            <h3 class="text-center text-secondary mb-3">Histórico de Atendimentos</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Cliente</th>
+                            <th>Atendente</th>
+                            <th>Canal</th>
+                            <th>Motivo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2025 ERP Simples Nacional. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

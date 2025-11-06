@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Contrato — ERP Simples</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">ERP Simples</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pessoa.html">Pessoas</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contrato.html">Contratos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="dispositivo.html">Dispositivos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="atendimento.html">Atendimento</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h1>Cadastro de Contrato</h1>
+        <p class="lead">Todo contrato deve estar vinculado a pelo menos uma pessoa (Física ou Jurídica).</p>
+
+        <form id="contratoForm" class="needs-validation" novalidate>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Vinculação</h5>
+                    <div class="mb-3">
+                        <label for="pessoaVinculada" class="form-label">Pessoa vinculada <span
+                                class="text-danger">*</span></label>
+                        <!-- No front-end estático, usamos um select. Em produção, popular com pessoas do banco de dados -->
+                        <select id="pessoaVinculada" name="pessoaVinculada" class="form-select" required>
+                            <option value="">Escolha a pessoa...</option>
+                            <option value="1">João Silva (CPF: 00000000000)</option>
+                            <option value="2">Empresa Exemplo LTDA (CNPJ: 00000000000000)</option>
+                        </select>
+                        <div class="invalid-feedback">Selecione a pessoa vinculada ao contrato.</div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="numeroContrato" class="form-label">Número do contrato <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="numeroContrato" name="numeroContrato" required>
+                            <div class="invalid-feedback">Informe o número do contrato.</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="dataInicio" class="form-label">Data de início <span
+                                    class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="dataInicio" name="dataInicio" required>
+                            <div class="invalid-feedback">Informe a data de início.</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="dataTermino" class="form-label">Data de término</label>
+                            <input type="date" class="form-control" id="dataTermino" name="dataTermino">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                            <select id="status" name="status" class="form-select" required>
+                                <option value="">Escolha...</option>
+                                <option value="ativo">Ativo</option>
+                                <option value="suspenso">Suspenso</option>
+                                <option value="encerrado">Encerrado</option>
+                            </select>
+                            <div class="invalid-feedback">Informe o status do contrato.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="observacoes" class="form-label">Observações</label>
+                            <textarea id="observacoes" name="observacoes" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <button type="reset" class="btn btn-outline-secondary">Limpar</button>
+                <button type="submit" class="btn btn-primary">Salvar contrato</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span id="year3"></span> ERP Simples — Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>contato@erp-simples.com</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        event.preventDefault()
+                        alert('Contrato validado — enviar para backend (implementação futura).')
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+        document.getElementById('year3').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
